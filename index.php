@@ -4,7 +4,7 @@ $uri = Urlencode($_SERVER['REQUEST_URI']);
 $url = 'https://' . $domain . $uri;
 $type = 取两者之间($uri, '/', '/');
 $header = getallheaders();
-$code = $header['TNXG-Service-Code'];
+//$code = $header['TNXG-Service-Code'];
 // if ($code != '1145141919810') {
 //     $array = array(
 //         'code' => '403',
@@ -33,6 +33,7 @@ if ($type == 'npm') {
         $url = str_replace('/' . 'npm' . '/' . $pack . '/', '', $uri);
     }
     $文件地址 = "https://unpkg.com/$pack@$npm包最新版本/$url";
+    echo $文件地址;
     $文件状态 = 获取文件状态($文件地址);
     $文件header = 获取文件格式($文件地址);
     if ($文件状态 != '200' || $文件状态 != '304 ') {
