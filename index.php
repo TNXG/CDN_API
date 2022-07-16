@@ -12,9 +12,9 @@ if ($code != '1145141919810') {
         'message' => '你无权从我们的回源服务器中获取信息',
         'time' => time(),
     );
-    echo json_encode($array, JSON_UNESCAPED_UNICODE);
     header('Content-type:text/json');
     http_response_code(403);
+    echo json_encode($array, JSON_UNESCAPED_UNICODE);
 } else {
     //判断cdn回源为npm还是gh
     if ($type == 'npm') {
@@ -42,9 +42,9 @@ if ($code != '1145141919810') {
                 'message' => '回源服务器无法从资源服务器中找到数据',
                 'time' => time(),
             );
-            echo json_encode($array, JSON_UNESCAPED_UNICODE);
             header('Content-type:text/json');
             http_response_code(404);
+            echo json_encode($array, JSON_UNESCAPED_UNICODE);
         } else {
             if (!empty($文件header)) {
                 $文件header = 'text/plain';
