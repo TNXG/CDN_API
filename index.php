@@ -1,4 +1,5 @@
-<?
+<?php
+error_reporting(E_ERROR);
 $domain = $_SERVER['HTTP_HOST'];
 $uri = $_SERVER['REQUEST_URI'];
 $url = 'https://' . $domain . $uri;
