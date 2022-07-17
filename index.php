@@ -86,8 +86,7 @@ if ($code != '1145141919810') {
             echo json_encode($array, JSON_UNESCAPED_UNICODE);
         }
     }
-
-    if ($type != 'npm' || $type != 'gh') {
+    if ($type != 'npm' && $type != 'gh') {
         $array = array(
             'code' => '404',
             'message' => '回源服务器无法从资源服务器中找到数据',
