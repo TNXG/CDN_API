@@ -69,12 +69,11 @@ $header = getallheaders();
         $文件状态 = (string)获取文件状态($文件地址);
         $文件header = 获取文件格式($文件地址);
         if ($文件状态 == 200 || $文件状态 == 302) {
-            echo $文件header . '//' . $文件状态;
             if (empty($文件header)) {
                 $文件header = 'text/plain';
             }
             header('Content-type:' . $文件header);
-            echo $文件header;
+            echo 获取文件($文件地址);
         } else {
             $array = array(
                 'code' => '404',
