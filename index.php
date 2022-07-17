@@ -5,17 +5,17 @@ $uri = urldecode($_SERVER['REQUEST_URI']);
 $url = 'https://' . $domain . $uri;
 $type = 取两者之间($uri, '/', '/');
 $header = getallheaders();
-$code = $header['Tnxg-Service-Code'];
-if ($code != '1145141919810') {
-    $array = array(
-        'code' => '403',
-        'message' => '你无权从我们的回源服务器中获取信息',
-        'time' => time(),
-    );
-    header('Content-type:text/json');
-    http_response_code(200);
-    echo json_encode($array, JSON_UNESCAPED_UNICODE);
-} else {
+// $code = $header['Tnxg-Service-Code'];
+// if ($code != '1145141919810') {
+//     $array = array(
+//         'code' => '403',
+//         'message' => '你无权从我们的回源服务器中获取信息',
+//         'time' => time(),
+//     );
+//     header('Content-type:text/json');
+//     http_response_code(200);
+//     echo json_encode($array, JSON_UNESCAPED_UNICODE);
+// } else {
     //判断cdn回源为npm还是gh
     if ($type == 'npm') {
         //获取包名，如果格式为 xx@aa 则返回 xx 如果没有版本号则返回空
@@ -99,7 +99,7 @@ if ($code != '1145141919810') {
         http_response_code(404);
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
     }
-}
+// }
 
 
 function 取两者之间($str, $start_str, $end_str = '/')
